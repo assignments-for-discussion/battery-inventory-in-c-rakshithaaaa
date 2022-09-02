@@ -17,8 +17,10 @@ void testBucketingByNumberOfCycles() {
   const int numberOfBatteries = sizeof(chargeCycleCounts) / sizeof(chargeCycleCounts[0]);
   printf("Counting batteries by usage cycles...\n");
   struct CountsByUsage counts = countBatteriesByUsage(chargeCycleCounts, numberOfBatteries);
-  assert(counts.lowCount == 400);
-  assert(counts.mediumCount > 400 && counts.lowCount <=919);
+  assert(counts.lowCount < 400);
+  printf("low");
+  assert(counts.mediumCount >= 400 && counts.lowCount <=919);
+  printf("h
   assert(counts.highCount >=920);
   printf("Done counting :)\n");
 }
